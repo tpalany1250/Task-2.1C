@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css"> <!-- External CSS-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- Vue.js library -->
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Todo App</h1>
+
+        <nav>
+            <a href="Todo.html">Todo App</a> <!-- PART 1 LINK -->
+            <a href="VConcepts.html">Vue 3 Concepts</a> <!-- PART 2 LINK -->
+        </nav>
+    </header>
+
+    <br><br>
+
+    <div id="app">
+        <!-- To-do App -->
+        <div class="todo-app">
+
+            <h3>Enter Task To Complete</h3>
+            <!-- Input field for adding new tasks -->
+            <input v-model="newTask" @keyup.enter="addTask" placeholder="Enter a new task">
+            
+            <ul>
+                <p>The tasks to complete are shown below: </p>
+                <!-- Loop through tasks and display each task -->
+                <li v-for="(task, index) in tasks" :key="index">
+                    <div>
+                        <!-- Checkbox for marking task as completed -->
+                        <input type="checkbox" v-model="task.completed">
+                        <span :class="{ completed: task.completed }">{{ task.text }}</span>
+                    </div>
+                    <!-- Remove button for deleting a task -->
+                    <div class="remove-button">
+                        <button @click="removeTask(index)">Remove</button>
+                    </div>
+                </li>
+                <!-- Display the message if there are no tasks -->
+                <p v-if="tasks.length === 0" class="no-tasks">No tasks</p>
+            </ul> 
+        </div>
+    </div>
+
+    <br><br><br>
+
+    <script>
+        // Creates a Vue.js app
+        const app = Vue.createApp({
+            data() {
+                return {
+                    newTask: '',
+                    tasks: []
+                };
+            },
+
+            methods: {
+                // Method for adding a new task
+                addTask() {
+                    if (this.newTask.trim() !== '') {
+                        this.tasks.push({
+                            text: this.newTask,
+                            completed: false
+                        });
+                        this.newTask = '';
+                        this.saveTasks();
+                    }
+                },
+                // Method for removing a task
+                removeTask(index) {
+                    this.tasks.splice(index, 1);
+                    this.saveTasks();
+                },
+                // Method for saving tasks to localStorage
+                saveTasks() {
+                    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+                },
+                // Method for loading tasks from localStorage
+                loadTasks() {
+                    const savedTasks = localStorage.getItem('tasks');
+                    if (savedTasks) {
+                        this.tasks = JSON.parse(savedTasks);
+                    }
+                }
+            },
+
+            mounted() {
+                // Load tasks from localStorage when the app is mounted
+                this.loadTasks();
+            }
+
+        });
+
+        app.mount('#app');
+
+    </script>
+
+</body>
+
+</html>

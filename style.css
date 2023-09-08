@@ -1,0 +1,169 @@
+/* General styling for the entire page */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.2;
+    background-color: #2a282e;
+    padding: 10px;
+    margin: 0 20px;
+}
+
+/* Styling for the page header */
+header {
+    background-color: #5ea1e8;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the header's h1 element */
+header h1 {
+    font-size: 36px;
+    color: #FFF; /* White text color */
+    font-weight: bold;
+}
+
+/* Styling for the navigation menu */
+nav {
+    max-width: 500px;
+    margin: auto;
+    border: 1px solid #ddd;
+    padding: 12px;
+    background: #fff;
+    box-shadow: 0 0 10px #ddd;
+
+    display: flex;
+    justify-content: center;
+}
+
+/* Styling for navigation links */
+nav a {
+    text-decoration: none;
+    color: #007BFF; /* Link color */
+    font-weight: bold;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+    margin: 0 10px;
+}
+
+/* Styling for navigation links on hover */
+nav a:hover {
+    color: #0056b3; /* Change color on hover */
+}
+
+/* Styling for h3 elements */
+h3 {
+    margin-left: 20px;
+}
+
+/* Styling for P elements */
+p {
+    margin-left: 30px;
+}
+
+/* Styling for bold elements */
+bold {
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+/* Styling for bold elements without adjusting the margins*/
+b {
+    font-weight: bold;
+}
+
+/* Styling for ordered lists */
+ol {
+    margin-left: -30px;
+}
+
+/* Styling for list item bullets */
+ol::before {
+    content: '\2022';
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    width: 1em;
+    margin-left: 1em;
+}
+
+/* Styling for unordered lists */
+ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 25px;
+    margin-left: 70px;
+    margin-right: 70px;
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;;
+}
+
+/* Styling for list items */
+li {
+    margin: 25px;
+    margin-left: 70px;
+    margin-right: 70px;
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;;
+}
+
+/* Adjustment for the remove button's margin */
+.remove-button {
+    margin-top: 10px;
+}
+
+/* Styling for the remove button */
+.remove-button button {
+    background-color: #ff0000; /* Red background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove button border */
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Styling for the remove button on hover */
+.remove-button button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+/* Styling for checkboxes */
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Styling for input elements */
+input {
+    margin-left: 20px;
+}
+
+/* Styling for the Todo App container */
+.todo-app {
+    max-width: 600px;
+    margin: auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px #ddd;
+}
+
+/* Styling for the Vue Concepts container */
+.VConcepts {
+    max-width: 600px;
+    margin: auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px #ddd;
+}
+
+/* Styling for input elements within the Vue Concepts container */
+.VConcepts input {
+    margin-left: 30px;
+}
+
+/* Styling for textarea elements */
+textarea {
+    margin-left: 30px;
+}

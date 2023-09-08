@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 Concepts</title>
+    <link rel="stylesheet" href="style.css"> <!-- External CSS-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- Vue.js library -->
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Vue 3 Concepts</h1>
+
+        <nav>
+            <a href="Todo.html">Todo App</a> <!-- PART 1 LINK -->
+            <a href="VConcepts.html">Vue 3 Concepts</a> <!-- PART 2 LINK -->
+        </nav>
+    </header>
+
+    <br><br>
+
+    <div id="app">
+        <!-- Conditional Rendering Section -->
+        <div class="VConcepts">
+
+            <h3>Conditonal Rendering: </h3>
+
+            <!-- This shows v-for -->
+            <bold>These names below are the different concepts used in Vue 3</bold>
+
+            <br><br>
+
+            <!-- Loop through items using v-for -->
+            <bold v-for="(item, index) in items">
+                {{ index }} - {{ item.message }}
+            </bold>
+
+            <ul></ul>
+
+            <bold>Examples:</bold>
+
+            <!-- Dot Point 1 - shows v-if, v-else, & v-else-if -->
+            <ol>Click the button "Toggle" if this is not your current emotion: <span>
+                <button @click="toggleEmotion">Toggle</button>
+            </span></ol>
+
+            <bold v-if="emotion === 'sad'">Sad 😢</bold>
+            <bold v-else-if="emotion === 'happy'">Happy!! 😄</bold>
+            <bold v-else-if="emotion === 'angry'">Angry 😡</bold>
+            <bold v-else>Neutral 😐</bold>
+
+
+            <!-- Dot Point 2 - shows v-show -->
+            <ol>Click the button "Hide" to make the phrase below disappear: <span>
+                <button @click="hideElement =!hideElement">Hide</button>
+            </span></ol>
+            <bold v-show="hideElement">I am here</bold>
+
+            <br><br>
+
+        </div>
+
+        <br><br>
+
+        <!-- Form Input Handling Section -->
+        <div class="VConcepts">
+
+            <h3>Form Input Handlings: </h3>
+
+            <!-- Input field with v-model -->
+            <p>Enter your name: <span><b>{{ message }}</b></span></p>
+            <input v-model="message"/>
+
+            <br><br>
+
+            <!-- Radio buttons and v-model -->
+            <bold>Presentation of the website is: {{ checkedNames }}</bold>
+
+            <br><br>
+ 
+            <input type="radio" id="E" value="Excellent" v-model="checkedNames" />
+            <label for="E">Excellent</label>
+           
+            <input type="radio" id="G" value="Good" v-model="checkedNames" />
+            <label for="G">Good</label>
+           
+            <input type="radio" id="M" value="Moderate" v-model="checkedNames" />
+            <label for="M">Moderate</label>
+
+            <input type="radio" id="Pass" value="Poor" v-model="checkedNames" />
+            <label for="Pass">Poor</label>
+
+            <br><br>
+
+            <!-- Textarea with v-model -->
+            <p>Leave a comment:</p>
+            <textarea v-model="comment"></textarea>
+
+            <br><br>
+
+            <!-- Display the comment -->
+            <bold style="white-space: pre-line;">
+                {{ comment }}
+            </bold>
+
+            <br><br>
+
+        </div>
+
+        <br><br>
+
+    </div>
+
+
+
+    <script>
+        // Creates a Vue.js app
+        const app = Vue.createApp({
+            data() {
+                return {
+                    // Initial values for the data properties
+                    emotion: 'happy', // Initial emotion
+                    hideElement: true,
+                    message: '',
+                    comment: '',
+                    checkedNames: '',
+                    items: [
+                        { message: 'v-if' },
+                        { message: 'v-else' },
+                        { message: 'v-else-if' },
+                        { message: 'v-show' },
+                        { message: 'v-for' },
+                    ],
+
+                };
+
+            },
+            methods: {
+                // Method to toggle emotion
+                toggleEmotion() {
+                    if (this.emotion === 'happy') {
+                        this.emotion = 'sad';
+                    } else if (this.emotion === 'sad') {
+                        this.emotion = 'angry';
+                    } else if (this.emotion === 'angry') {
+                        this.emotion = 'happy';
+                    }
+                },
+            },
+        });
+
+        app.mount('#app');
+
+    </script>
+
+</body>
+
+</html>
